@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OriaOS 5</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="lockScreen" class="screen">
+    <div class="lock-text">ปัดขึ้นเพื่อปลดล็อก</div>
+  </div>
+
+  <div id="homeScreen" class="screen hidden">
+    <div class="status-bar">📶 OriaOS 5 🔋</div>
+    <div class="pages">
+      <div class="page">
+        <div class="app" onclick="openApp('settings')">⚙️</div>
+        <div class="app" onclick="openApp('clock')">🕒</div>
+        <div class="app" onclick="openApp('calculator')">🧮</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsApp" class="app-window hidden">
+    <h2>ตั้งค่า</h2>
+    <button onclick="toggleDarkMode()">🌙 โหมดมืด</button>
+    <button onclick="openWallpaperMenu()">🖼 เปลี่ยนวอลเปเปอร์</button>
+  </div>
+
+  <div id="wallpaperMenu" class="app-window hidden">
+    <h3>เลือกวอลเปเปอร์</h3>
+    <button onclick="setWallpaper('default')">ค่าเริ่มต้น</button>
+    <button onclick="setWallpaper('url')">ใส่ URL</button>
+    <input type="file" id="uploadInput" onchange="uploadWallpaper(event)" />
+  </div>
+
+  <div id="clockApp" class="app-window hidden">
+    <h2>เวลา</h2>
+    <div id="clockDisplay">--:--:--</div>
+  </div>
+
+  <div id="calculatorApp" class="app-window hidden">
+    <h2>เครื่องคิดเลข</h2>
+    <input id="calcInput" readonly />
+    <div class="calc-buttons">
+      <button onclick="appendCalc('1')">1</button>
+      <button onclick="appendCalc('2')">2</button>
+      <button onclick="appendCalc('+')">+</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="clearCalc()">C</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
